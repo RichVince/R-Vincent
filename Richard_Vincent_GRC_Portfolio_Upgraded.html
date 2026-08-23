@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Richard Vincent | GRC, Cyber Risk &amp; AI Governance Portfolio</title>
+<meta name="description" content="Richard Vincent's GRC, cyber risk, and AI governance portfolio—featuring control assessments, audit findings, risk documentation, NIST CSF, ISO 27001, and technical security experience." />
+<meta name="theme-color" content="#05060F" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Richard Vincent | GRC, Cyber Risk &amp; AI Governance" />
+<meta property="og:description" content="Technical security experience translated into practical governance, risk, compliance, audit, and AI governance work." />
+<meta property="og:url" content="https://richvince.github.io/Richard-Vincent/" />
+<meta name="twitter:card" content="summary" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+/* ══════════════════════ TOKENS ══════════════════════ */
+:root{
+  --bg:#05060F; --bg-grad-1:#080B1C; --bg-grad-2:#0A0E22;
+  --surface:#0C0F22; --surface-2:#111530; --surface-3:#161A3A;
+  --text:#EEF1FB; --muted:#7883A6; --muted-2:#A6AFCC;
+  --blue:#4C7EFF; --blue-soft:#7CA0FF;
+  --purple:#9B6BFF; --purple-soft:#B695FF;
+  --blue-dim:rgba(76,126,255,0.14); --blue-border:rgba(76,126,255,0.32);
+  --purple-dim:rgba(155,107,255,0.14); --purple-border:rgba(155,107,255,0.32);
+  --grad-text:linear-gradient(120deg,var(--blue-soft) 10%,var(--purple-soft) 90%);
+  --grad-solid:linear-gradient(135deg,var(--blue),var(--purple));
+  --green:#4ADE9A; --green-dim:rgba(74,222,154,0.12); --green-border:rgba(74,222,154,0.3);
+  --amber:#F0B84C; --amber-dim:rgba(240,184,76,0.12); --amber-border:rgba(240,184,76,0.3);
+  --red:#F1667A; --red-dim:rgba(241,102,122,0.13); --red-border:rgba(241,102,122,0.32);
+  --border:rgba(255,255,255,0.08); --border-2:rgba(255,255,255,0.15);
+  --shadow:0 30px 80px rgba(2,4,16,0.6);
+  --max:1180px;
+  --display:"Space Grotesk", ui-sans-serif, sans-serif;
+  --body:"Inter", ui-sans-serif, sans-serif;
+  --mono:"IBM Plex Mono","Fira Mono", monospace;
+  --radius:16px; --radius-lg:26px;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+a{color:inherit;text-decoration:none;}
+::selection{background:var(--purple-dim);color:var(--text);}
+
+body{
+  min-height:100vh;
+  font-family:var(--body);
+  font-size:16px;
+  color:var(--text);
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse 80% 45% at 18% -8%, rgba(76,126,255,0.16) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 100% 10%, rgba(155,107,255,0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(76,126,255,0.08) 0%, transparent 60%);
+  line-height:1.65;
+  overflow-x:hidden;
+}
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size:34px 34px;
+  mask-image:linear-gradient(to bottom, rgba(0,0,0,0.65) 0%, transparent 65%);
+}
+.skip-link{position:fixed;top:10px;left:10px;z-index:500;transform:translateY(-150%);padding:10px 14px;border-radius:9px;background:var(--text);color:var(--bg);font-weight:700;transition:transform .2s;}
+.skip-link:focus{transform:translateY(0);}
+:focus-visible{outline:3px solid var(--blue-soft);outline-offset:3px;}
+.container{width:min(92%,var(--max));margin:0 auto;}
+
+/* ── cursor glow / scroll progress ── */
+#cursor-glow{
+  position:fixed; top:0; left:0; width:520px; height:520px; border-radius:50%;
+  background:radial-gradient(circle, rgba(120,120,255,0.10) 0%, transparent 70%);
+  transform:translate(-999px,-999px);
+  pointer-events:none; z-index:2; will-change:transform;
+}
+#scroll-progress{
+  position:fixed; top:0; left:0; height:2px; width:0%;
+  background:var(--grad-solid); z-index:200;
+  box-shadow:0 0 12px rgba(155,107,255,0.6);
+}
+
+/* ══════════════════════ NAV ══════════════════════ */
+.nav{position:sticky; top:0; z-index:100; border-bottom:1px solid transparent; transition:background .35s,border-color .35s;}
+.nav.scrolled{background:rgba(5,6,15,0.86); border-color:var(--border); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);}
+.nav-inner{width:min(92%,var(--max)); margin:0 auto; height:76px; display:flex; align-items:center; justify-content:space-between; gap:24px;}
+.brand{display:flex; align-items:center; gap:12px; flex-shrink:0;}
+.brand-mark{width:42px; height:42px; flex-shrink:0; object-fit:contain; display:block;}
+.brand-text{display:flex; flex-direction:column; line-height:1.15;}
+.brand-name{font-family:var(--display); font-weight:700; font-size:1.02rem; letter-spacing:-0.01em;}
+.brand-sub{font-family:var(--mono); font-size:0.62rem; letter-spacing:0.08em; color:var(--muted); text-transform:uppercase;}
+.nav-links{display:flex; flex-wrap:wrap; gap:2px; list-style:none;}
+.nav-links a{position:relative; padding:8px 13px; border-radius:9px; font-size:0.83rem; font-weight:500; color:var(--muted); transition:color .2s, background .2s;}
+.nav-links a:hover{color:var(--text); background:rgba(255,255,255,0.05);}
+.nav-links a.active{color:var(--text); background:var(--blue-dim);}
+.nav-right{display:flex; align-items:center; gap:10px; flex-shrink:0;}
+.icon-link{width:36px; height:36px; display:grid; place-items:center; border-radius:9px; border:1px solid var(--border); color:var(--muted); transition:color .2s, border-color .2s, background .2s;}
+.icon-link:hover{color:var(--text); border-color:var(--blue-border); background:var(--blue-dim);}
+.icon-link svg{width:16px; height:16px;}
+
+/* ══════════════════════ SECTION BASE ══════════════════════ */
+.section{padding:100px 0;}
+.section-label{display:inline-flex; align-items:center; gap:9px; font-family:var(--mono); font-size:0.72rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; background:var(--grad-text); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:14px;}
+.section-label::before{content:""; display:block; width:16px; height:1px; background:var(--grad-solid);}
+.section-title{font-family:var(--display); font-size:clamp(1.9rem,3.4vw,2.9rem); font-weight:600; line-height:1.1; letter-spacing:-0.03em; color:var(--text); margin-bottom:14px;}
+.section-intro{color:var(--muted-2); font-size:1.03rem; line-height:1.8; max-width:680px;}
+.section-header{margin-bottom:48px;}
+
+.reveal{opacity:0; transform:translateY(24px); transition:opacity .6s var(--ease), transform .6s var(--ease);}
+.reveal.visible{opacity:1; transform:translateY(0);}
+.reveal-delay-1{transition-delay:.08s;} .reveal-delay-2{transition-delay:.16s;}
+.reveal-delay-3{transition-delay:.24s;} .reveal-delay-4{transition-delay:.32s;}
+
+/* ══════════════════════ HERO ══════════════════════ */
+.hero{padding:64px 0 70px;}
+.hero-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+.kicker{display:inline-flex; align-items:center; gap:10px; font-family:var(--mono); font-size:0.72rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--blue-soft); margin-bottom:22px;}
+.kicker-dot{width:7px; height:7px; border-radius:50%; background:var(--grad-solid); box-shadow:0 0 10px var(--purple); animation:pulse 2.4s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:1;} 50%{opacity:0.55;}}
+.hero h1{font-family:var(--display); font-size:clamp(2.4rem,4.6vw,4.1rem); font-weight:600; line-height:1.06; letter-spacing:-0.03em; color:var(--text); margin-bottom:22px;}
+.hero-grad{background:var(--grad-text); -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero-lead{color:var(--muted-2); font-size:1.06rem; line-height:1.8; max-width:520px; margin-bottom:34px;}
+.cta-row{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:30px;}
+.btn{position:relative; display:inline-flex; align-items:center; gap:7px; height:44px; padding:0 20px; border-radius:11px; border:1px solid transparent; font-family:var(--body); font-size:0.87rem; font-weight:600; transition:box-shadow .18s, border-color .18s, background .18s; cursor:pointer; white-space:nowrap;}
+.btn-primary{background:var(--grad-solid); color:#05060F; box-shadow:0 10px 30px rgba(120,110,255,0.3);}
+.btn-primary:hover{box-shadow:0 16px 40px rgba(120,110,255,0.42);}
+.btn-secondary{background:rgba(255,255,255,0.04); border-color:var(--border-2); color:var(--muted-2);}
+.btn-secondary:hover{border-color:var(--blue-border); color:var(--text);}
+.btn-ghost{font-family:var(--mono); font-size:0.78rem; color:var(--muted); display:inline-flex; align-items:center; gap:6px; padding:0 4px; height:44px;}
+.btn-ghost:hover{color:var(--blue-soft);}
+.hero-tags{display:flex; flex-wrap:wrap; gap:8px;}
+.hero-tag{padding:6px 12px; border-radius:8px; border:1px solid var(--border); background:var(--surface); font-family:var(--mono); font-size:0.7rem; font-weight:500; color:var(--muted); letter-spacing:0.05em;}
+
+/* ── network hero card ── */
+.network-card{
+  border-radius:var(--radius-lg); border:1px solid var(--blue-border);
+  background:linear-gradient(160deg, var(--surface-2) 0%, var(--surface) 100%);
+  box-shadow:var(--shadow), 0 0 0 1px rgba(76,126,255,0.05) inset;
+  padding:22px 22px 26px; position:relative; overflow:hidden;
+  transform-style:preserve-3d; transition:transform .1s ease-out;
+  animation:panel-rise .8s var(--ease) both;
+}
+@keyframes panel-rise{from{opacity:0; transform:translateY(26px) scale(.97);} to{opacity:1; transform:translateY(0) scale(1);}}
+.network-card::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(circle at 15% 10%, rgba(76,126,255,0.14) 0%, transparent 45%),
+             radial-gradient(circle at 90% 90%, rgba(155,107,255,0.12) 0%, transparent 45%);
+}
+.network-label{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px; position:relative;}
+.network-label span{font-family:var(--mono); font-size:0.66rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--blue-soft);}
+.network-live{display:flex; align-items:center; gap:6px; font-family:var(--mono); font-size:0.62rem; font-weight:700; color:var(--green); letter-spacing:0.08em; text-transform:uppercase;}
+.network-live .dot{width:6px; height:6px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green); animation:pulse 2.4s ease-in-out infinite;}
+.network-wrap{position:relative; width:100%; aspect-ratio:1/1; margin-top:6px;}
+.network-wrap svg{position:absolute; inset:0; width:100%; height:100%;}
+.net-node{
+  position:absolute; transform:translate(-50%,-50%); width:104px; text-align:center;
+  display:flex; flex-direction:column; align-items:center; gap:7px;
+}
+.net-node .hexi{
+  width:52px; height:52px; display:grid; place-items:center;
+  clip-path:polygon(25% 3%, 75% 3%, 100% 50%, 75% 97%, 25% 97%, 0% 50%);
+  background:var(--surface-3); border:1px solid var(--blue-border);
+  box-shadow:0 0 0 1px rgba(76,126,255,0.05) inset;
+  color:var(--blue-soft);
+  animation:node-glow 3.6s ease-in-out infinite;
+}
+.net-node .hexi svg{width:20px; height:20px;}
+.net-node span{font-family:var(--mono); font-size:0.6rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--muted-2); line-height:1.3;}
+@keyframes node-glow{0%,100%{box-shadow:0 0 12px rgba(76,126,255,0.15), 0 0 0 1px rgba(76,126,255,0.05) inset;} 50%{box-shadow:0 0 22px rgba(155,107,255,0.35), 0 0 0 1px rgba(76,126,255,0.05) inset;}}
+.net-hub{
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  width:128px; height:128px; border-radius:50%;
+  background:radial-gradient(circle, rgba(76,126,255,0.16), rgba(155,107,255,0.08) 60%, transparent 80%);
+  border:1px solid var(--purple-border);
+  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
+  text-align:center; animation:hub-pulse 3.2s ease-in-out infinite;
+}
+.net-hub svg{width:24px; height:24px; color:var(--purple-soft);}
+.net-hub b{font-family:var(--mono); font-size:0.62rem; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:var(--text); line-height:1.3;}
+@keyframes hub-pulse{0%,100%{box-shadow:0 0 0 0 rgba(155,107,255,0.25);} 50%{box-shadow:0 0 0 14px rgba(155,107,255,0);}}
+.net-line{fill:none; stroke:url(#lineGrad); stroke-width:1.4; opacity:0.55;}
+.net-ring{fill:none; stroke:rgba(255,255,255,0.08); stroke-width:1;}
+.net-dot{fill:#fff; filter:drop-shadow(0 0 4px rgba(155,107,255,0.9));}
+
+/* ══════════════════════ QUICK LINKS ══════════════════════ */
+.quicklinks-section{padding:0 0 70px;}
+.quicklinks-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+.quicklink{
+  padding:24px 22px; border-radius:var(--radius-lg); border:1px solid var(--border);
+  background:linear-gradient(160deg, var(--surface-2), var(--surface));
+  display:flex; flex-direction:column; gap:12px;
+  transition:border-color .25s, transform .25s;
+}
+.quicklink:hover{border-color:var(--blue-border); transform:translateY(-4px);}
+.quicklink .qicon{width:38px; height:38px; border-radius:10px; display:grid; place-items:center; background:var(--blue-dim); border:1px solid var(--blue-border); color:var(--blue-soft);}
+.quicklink .qicon svg{width:18px; height:18px;}
+.quicklink h3{font-size:1rem; font-weight:600; margin-bottom:2px;}
+.quicklink p{color:var(--muted); font-size:0.85rem; line-height:1.55;}
+.quicklink .qarrow{margin-top:auto; color:var(--blue-soft); display:flex; align-items:center; gap:6px; font-size:0.82rem; font-weight:600;}
+.quicklink .qarrow svg{width:14px; height:14px; transition:transform .2s;}
+.quicklink:hover .qarrow svg{transform:translateX(3px);}
+
+/* ══════════════════════ STATS ══════════════════════ */
+.stats-section{padding:0 0 76px;}
+.stats-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+.stat-card{padding:28px 24px; border-radius:var(--radius-lg); border:1px solid var(--border); background:linear-gradient(160deg,var(--surface-2),var(--surface)); transition:border-color .25s, transform .25s;}
+.stat-card:hover{border-color:var(--purple-border); transform:translateY(-3px);}
+.stat-number{font-family:var(--display); font-size:2.9rem; font-weight:700; line-height:1; letter-spacing:-0.03em; background:var(--grad-text); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:10px; display:block;}
+.stat-desc{color:var(--muted); font-size:0.89rem; line-height:1.55;}
+
+/* ══════════════════════ FINDING SPOTLIGHT ══════════════════════ */
+.finding-spotlight{
+  border-radius:var(--radius-lg); border:1px solid var(--blue-border);
+  background:linear-gradient(160deg, var(--surface-2) 0%, var(--surface) 100%);
+  box-shadow:var(--shadow); overflow:hidden;
+}
+.spot-topbar{display:flex; align-items:center; justify-content:space-between; padding:16px 24px; border-bottom:1px solid var(--border); background:rgba(0,0,0,0.22); flex-wrap:wrap; gap:10px;}
+.spot-ref{font-family:var(--mono); font-size:0.7rem; font-weight:600; color:var(--blue-soft); letter-spacing:0.1em; text-transform:uppercase;}
+.spot-status{display:flex; align-items:center; gap:7px; font-family:var(--mono); font-size:0.66rem; font-weight:700; color:var(--green); letter-spacing:0.08em; text-transform:uppercase;}
+.spot-status .dot{width:6px; height:6px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green); animation:pulse 2.4s ease-in-out infinite;}
+.spot-body{display:grid; grid-template-columns:1.3fr 1fr; gap:0;}
+.spot-main{padding:26px 28px;}
+.spot-header{display:flex; align-items:flex-start; justify-content:space-between; gap:14px; margin-bottom:18px;}
+.spot-id{font-family:var(--mono); font-size:0.68rem; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:5px;}
+.spot-title{font-family:var(--display); font-size:1.35rem; font-weight:600; line-height:1.25; color:var(--text);}
+.risk-badge{flex-shrink:0; padding:6px 12px; border-radius:8px; font-family:var(--mono); font-size:0.66rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; white-space:nowrap;}
+.risk-high{background:var(--red-dim); border:1px solid var(--red-border); color:var(--red);}
+.risk-med{background:var(--amber-dim); border:1px solid var(--amber-border); color:var(--amber);}
+.risk-low{background:var(--green-dim); border:1px solid var(--green-border); color:var(--green);}
+.spot-block{margin-bottom:16px;}
+.spot-block-label{font-family:var(--mono); font-size:0.64rem; font-weight:700; color:var(--muted); letter-spacing:0.12em; text-transform:uppercase; margin-bottom:7px;}
+.spot-block p{font-size:0.92rem; color:var(--muted-2); line-height:1.7;}
+.citation-row{display:flex; flex-wrap:wrap; gap:7px;}
+.citation{padding:4px 10px; border-radius:6px; border:1px solid var(--blue-border); background:var(--blue-dim); font-family:var(--mono); font-size:0.65rem; font-weight:600; color:var(--blue-soft); letter-spacing:0.04em;}
+.spot-side{padding:26px 28px; border-left:1px solid var(--border); background:rgba(0,0,0,0.16); display:flex; flex-direction:column; gap:16px;}
+.maturity-label{font-family:var(--mono); font-size:0.66rem; color:var(--muted); letter-spacing:0.06em; margin-bottom:8px; display:block;}
+.maturity-bar-wrap{height:6px; background:rgba(255,255,255,0.06); border-radius:99px; overflow:hidden; margin-bottom:6px;}
+.maturity-bar{height:100%; width:0%; border-radius:99px; background:var(--grad-solid); transition:width 1.2s var(--ease);}
+.maturity-bar.filled{width:80%;}
+.maturity-val{font-family:var(--mono); font-size:0.66rem; font-weight:600; color:var(--text);}
+.mini-findings{display:grid; gap:8px;}
+.mini-finding{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 13px; border-radius:10px; border:1px solid var(--border); background:rgba(255,255,255,0.03); font-size:0.83rem;}
+.mini-finding-name{color:var(--muted-2);}
+.mini-badge{font-family:var(--mono); font-size:0.62rem; font-weight:700; padding:3px 8px; border-radius:6px; letter-spacing:0.04em;}
+
+/* ══════════════════════ ENVIRONMENT ══════════════════════ */
+.env-wrapper{display:grid; grid-template-columns:1fr 1fr; gap:26px; border-radius:var(--radius-lg); border:1px solid var(--border); background:linear-gradient(150deg,var(--surface-2) 0%, var(--surface) 100%); padding:38px; box-shadow:var(--shadow);}
+.env-wrapper h3{font-family:var(--display); font-size:1.32rem; font-weight:600; margin-bottom:12px;}
+.env-wrapper p{color:var(--muted-2); line-height:1.75; font-size:0.95rem; margin-bottom:16px;}
+.disclaimer{padding:13px 16px; border-radius:10px; border:1px solid var(--amber-border); background:var(--amber-dim); font-size:0.85rem; color:var(--muted-2);}
+.disclaimer strong{color:var(--amber);}
+.env-list{list-style:none; display:grid; gap:8px;}
+.env-list li{padding:12px 15px; border-radius:10px; border:1px solid var(--border); background:rgba(255,255,255,0.03); font-size:0.88rem; color:var(--muted-2);}
+.env-list li strong{color:var(--text);}
+
+/* ══════════════════════ TOOL DEMO / AUDIT COLLECTION ══════════════════════ */
+.audit-feature{display:grid; grid-template-columns:260px 1fr; gap:36px; padding:38px; border-radius:var(--radius-lg); border:1px solid var(--blue-border); background:linear-gradient(150deg,var(--surface-2) 0%, var(--surface) 100%); box-shadow:var(--shadow); position:relative; overflow:hidden;}
+.audit-feature::before{content:""; position:absolute; inset:0; pointer-events:none; background:radial-gradient(circle at 0% 0%, rgba(76,126,255,0.12) 0%, transparent 40%), radial-gradient(circle at 100% 100%, rgba(155,107,255,0.1) 0%, transparent 40%);}
+.audit-feature > *{position:relative;}
+.audit-meta{display:grid; gap:12px; align-content:start;}
+.meta-item{padding:14px 16px; border-radius:12px; border:1px solid var(--border); background:rgba(255,255,255,0.03);}
+.meta-item span{display:block; font-family:var(--mono); font-size:0.62rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted); margin-bottom:4px;}
+.meta-item strong{color:var(--text); font-size:0.9rem;}
+.feature-tag{display:inline-flex; padding:5px 11px; border-radius:7px; background:var(--purple-dim); border:1px solid var(--purple-border); font-family:var(--mono); font-size:0.66rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--purple-soft); margin-bottom:12px;}
+.audit-feature h3{font-family:var(--display); font-size:1.42rem; font-weight:600; margin-bottom:12px; line-height:1.22;}
+.audit-feature p{color:var(--muted-2); font-size:0.95rem; line-height:1.75; margin-bottom:20px;}
+.process-list{list-style:none; display:grid; gap:8px; margin-bottom:24px;}
+.process-list li{display:flex; align-items:center; gap:10px; padding:10px 13px; border-radius:10px; border:1px solid var(--border); background:rgba(255,255,255,0.03); font-size:0.88rem; color:var(--muted-2);}
+.process-list li::before{content:"→"; background:var(--grad-text); -webkit-background-clip:text; background-clip:text; color:transparent; font-weight:700; flex-shrink:0;}
+
+/* ══════════════════════ PROJECT CARDS ══════════════════════ */
+.projects-list{display:grid; gap:18px;}
+.project-card{display:grid; grid-template-columns:260px 1fr; border-radius:var(--radius-lg); border:1px solid var(--border); background:linear-gradient(150deg,var(--surface-2) 0%, var(--surface) 100%); box-shadow:0 12px 40px rgba(0,0,0,0.3); overflow:hidden; transition:border-color .25s, transform .25s, box-shadow .25s;}
+.project-card:hover{border-color:var(--blue-border); transform:translateY(-3px); box-shadow:0 20px 52px rgba(0,0,0,0.4), 0 0 0 1px rgba(76,126,255,0.08) inset;}
+.project-aside{padding:28px 22px; background:rgba(0,0,0,0.24); border-right:1px solid var(--border); display:flex; flex-direction:column; gap:16px;}
+.proj-num{font-family:var(--mono); font-size:0.65rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:var(--muted);}
+.proj-status{display:inline-flex; width:fit-content; padding:4px 10px; border-radius:99px; font-family:var(--mono); font-size:0.62rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; background:var(--green-dim); border:1px solid var(--green-border); color:var(--green);}
+.proj-attr label{display:block; font-family:var(--mono); font-size:0.62rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:var(--muted); margin-bottom:3px;}
+.proj-attr span{color:var(--text); font-size:0.9rem; font-weight:500;}
+.risk-high-text{color:var(--red);} .risk-med-text{color:var(--amber);}
+.proj-citations{display:flex; flex-direction:column; gap:5px; margin-top:auto;}
+.proj-cite{padding:4px 8px; border-radius:6px; width:fit-content; font-family:var(--mono); font-size:0.62rem; font-weight:600; letter-spacing:0.04em;}
+.cite-blue{background:var(--blue-dim); border:1px solid var(--blue-border); color:var(--blue-soft);}
+.cite-purple{background:var(--purple-dim); border:1px solid var(--purple-border); color:var(--purple-soft);}
+.project-body{padding:28px 30px;}
+.project-body h3{font-family:var(--display); font-size:1.28rem; font-weight:600; line-height:1.25; letter-spacing:-0.015em; margin-bottom:10px; color:var(--text);}
+.project-desc{color:var(--muted-2); font-size:0.93rem; line-height:1.72; margin-bottom:20px;}
+.deliverables-label{font-family:var(--mono); font-size:0.62rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:var(--purple-soft); margin-bottom:10px;}
+.deliverables-grid{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:22px;}
+.deliverable{display:flex; align-items:flex-start; gap:8px; padding:9px 11px; border-radius:10px; border:1px solid var(--border); background:rgba(255,255,255,0.025); font-size:0.83rem; color:var(--muted-2); line-height:1.45;}
+.deliverable::before{content:"↳"; color:var(--blue-soft); font-weight:700; flex-shrink:0; margin-top:1px;}
+.proj-link{display:inline-flex; align-items:center; gap:7px; padding:10px 16px; border-radius:10px; border:1px solid var(--blue-border); background:var(--blue-dim); font-size:0.84rem; font-weight:600; color:var(--blue-soft); transition:background .2s, border-color .2s;}
+.proj-link:hover{background:rgba(76,126,255,0.2); border-color:rgba(76,126,255,0.5);}
+
+/* ══════════════════════ METHODOLOGY ══════════════════════ */
+.lifecycle-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:14px;}
+.life-step{padding:24px 20px; border-radius:var(--radius); border:1px solid var(--border); background:linear-gradient(160deg,var(--surface-2),var(--surface)); transition:border-color .25s, transform .25s;}
+.life-step:hover{border-color:var(--purple-border); transform:translateY(-3px);}
+.life-num{display:block; font-family:var(--mono); font-size:0.65rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; background:var(--grad-text); -webkit-background-clip:text; background-clip:text; color:transparent; margin-bottom:12px;}
+.life-step h3{font-size:1.02rem; font-weight:600; margin-bottom:8px;}
+.life-step p{color:var(--muted); font-size:0.87rem; line-height:1.62;}
+
+/* ══════════════════════ BEFORE / AFTER ══════════════════════ */
+.ba-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px;}
+.ba-card{padding:28px; border-radius:var(--radius-lg); border:1px solid var(--border); background:linear-gradient(160deg,var(--surface-2),var(--surface));}
+.ba-tag{display:inline-flex; padding:4px 10px; border-radius:7px; font-family:var(--mono); font-size:0.62rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:12px;}
+.ba-tag-before{background:var(--red-dim); border:1px solid var(--red-border); color:var(--red);}
+.ba-tag-after{background:var(--green-dim); border:1px solid var(--green-border); color:var(--green);}
+.ba-card h3{font-family:var(--display); font-size:1.2rem; font-weight:600; margin-bottom:16px;}
+.ba-list{list-style:none; display:grid; gap:8px;}
+.ba-list li{display:flex; align-items:flex-start; gap:10px; padding:11px 13px; border-radius:10px; border:1px solid var(--border); background:rgba(255,255,255,0.025); font-size:0.88rem; color:var(--muted-2); line-height:1.5;}
+.ba-list.before li::before{content:"✕"; color:var(--red); flex-shrink:0; font-weight:700;}
+.ba-list.after li::before{content:"✓"; color:var(--green); flex-shrink:0; font-weight:700;}
+
+/* ══════════════════════ FRAMEWORKS ══════════════════════ */
+.framework-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px;}
+.framework-card{padding:26px 22px; border-radius:var(--radius-lg); border:1px solid var(--border); background:linear-gradient(160deg,var(--surface-2),var(--surface)); transition:border-color .25s, transform .25s;}
+.framework-card:hover{border-color:var(--purple-border); transform:translateY(-3px);}
+.fw-label{display:block; font-family:var(--mono); font-size:0.7rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--purple-soft); margin-bottom:10px;}
+.framework-card h3{font-size:1rem; font-weight:600; margin-bottom:8px; line-height:1.3;}
+.framework-card p{color:var(--muted); font-size:0.87rem; line-height:1.65;}
+
+/* ══════════════════════ CARDS GRID (SOC + training) ══════════════════════ */
+.card-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+.card{padding:26px; border-radius:var(--radius-lg); border:1px solid var(--border); background:linear-gradient(160deg,var(--surface-2),var(--surface)); transition:border-color .25s, transform .25s;}
+.card:hover{border-color:var(--blue-border); transform:translateY(-3px);}
+.card-tag{display:inline-flex; padding:4px 10px; border-radius:7px; background:var(--blue-dim); border:1px solid var(--blue-border); font-family:var(--mono); font-size:0.62rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:var(--blue-soft); margin-bottom:14px;}
+.card-tag-done{background:var(--green-dim); border-color:var(--green-border); color:var(--green);}
+.card-tag-active{background:var(--purple-dim); border-color:var(--purple-border); color:var(--purple-soft);}
+.card-tag-plan{background:var(--amber-dim); border-color:var(--amber-border); color:var(--amber);}
+.card h3{font-size:1.02rem; font-weight:600; line-height:1.28; margin-bottom:10px;}
+.card p{color:var(--muted); font-size:0.89rem; line-height:1.7;}
+
+/* ══════════════════════ TIMELINE (Journey) ══════════════════════ */
+.timeline{max-width:760px;}
+.timeline-item{position:relative; padding-left:40px; padding-bottom:28px; margin-left:6px; border-left:1px solid var(--border);}
+.timeline-item:last-child{padding-bottom:0; border-left-color:transparent;}
+.timeline-dot{position:absolute; left:-7px; top:3px; width:13px; height:13px; border-radius:50%; background:var(--surface); border:2px solid var(--muted); box-shadow:0 0 0 5px var(--bg);}
+.timeline-item.tl-done .timeline-dot{border-color:var(--green); background:var(--green); box-shadow:0 0 0 5px var(--bg), 0 0 10px rgba(74,222,154,0.5);}
+.timeline-item.tl-active .timeline-dot{border-color:var(--purple); background:var(--purple); box-shadow:0 0 0 5px var(--bg), 0 0 10px rgba(155,107,255,0.5);}
+.timeline-item.tl-plan .timeline-dot{border-color:var(--amber); background:transparent;}
+.timeline-card{padding:18px 22px; border-radius:14px; border:1px solid var(--border); background:linear-gradient(160deg,var(--surface-2),var(--surface)); transition:border-color .25s, transform .25s;}
+.timeline-card:hover{border-color:var(--blue-border); transform:translateX(3px);}
+.timeline-status{font-family:var(--mono); font-size:0.64rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:8px; display:inline-block; padding:3px 9px; border-radius:6px;}
+.tl-done .timeline-status{background:var(--green-dim); border:1px solid var(--green-border); color:var(--green);}
+.tl-active .timeline-status{background:var(--purple-dim); border:1px solid var(--purple-border); color:var(--purple-soft);}
+.tl-plan .timeline-status{background:var(--amber-dim); border:1px solid var(--amber-border); color:var(--amber);}
+.timeline-card h3{font-size:1.02rem; font-weight:600; margin-bottom:6px;}
+.timeline-card p{color:var(--muted); font-size:0.89rem; line-height:1.65;}
+.timeline-card a{color:var(--blue-soft);}
+.timeline-card a:hover{color:var(--purple-soft); text-decoration:underline;}
+
+/* ══════════════════════ CONTACT ══════════════════════ */
+.contact-card{border-radius:var(--radius-lg); border:1px solid var(--border); background:linear-gradient(160deg,var(--surface-2),var(--surface)); overflow:hidden;}
+.contact-row{display:flex; align-items:baseline; justify-content:space-between; gap:20px; padding:16px 26px; border-bottom:1px solid var(--border); font-size:0.93rem;}
+.contact-row:last-child{border-bottom:none;}
+.contact-row strong{color:var(--text); font-weight:600; white-space:nowrap;}
+.contact-row span{color:var(--muted-2); text-align:right;}
+.contact-row a{color:var(--blue-soft); transition:color .2s;}
+.contact-row a:hover{color:var(--purple-soft); text-decoration:underline;}
+
+/* ══════════════════════ FOOTER ══════════════════════ */
+footer{padding:56px 0 32px; border-top:1px solid var(--border);}
+.footer-top{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:28px; padding-bottom:32px; margin-bottom:24px; border-bottom:1px solid var(--border);}
+.footer-brand{display:flex; align-items:center; gap:12px;}
+.footer-brand .brand-mark{width:44px; height:44px;}
+.footer-brand .brand-name{font-size:1.15rem;}
+.footer-contact{display:flex; flex-wrap:wrap; gap:10px;}
+.footer-contact-item{display:flex; align-items:center; gap:9px; padding:9px 14px; border-radius:10px; border:1px solid var(--border); background:rgba(255,255,255,0.03); font-size:0.85rem; color:var(--muted-2); transition:border-color .2s, color .2s;}
+.footer-contact-item:hover{border-color:var(--blue-border); color:var(--text);}
+.footer-contact-item svg{width:16px; height:16px; flex-shrink:0; color:var(--blue-soft);}
+.footer-bottom{display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:12px; color:var(--muted); font-size:0.82rem; line-height:1.7;}
+.footer-bottom span{color:var(--muted); font-size:0.76rem;}
+
+/* ══════════════════════ RESPONSIVE ══════════════════════ */
+@media (max-width:1000px){
+  .hero-grid, .env-wrapper, .audit-feature, .spot-body{grid-template-columns:1fr;}
+  .spot-side{border-left:none; border-top:1px solid var(--border);}
+  .lifecycle-grid, .framework-grid{grid-template-columns:repeat(2,1fr);}
+  .stats-grid, .quicklinks-grid{grid-template-columns:repeat(2,1fr);}
+  .network-wrap{max-width:420px; margin:6px auto 0;}
+  #cursor-glow{display:none;}
+}
+@media (max-width:720px){
+  .project-card{grid-template-columns:1fr;}
+  .project-aside{border-right:none; border-bottom:1px solid var(--border);}
+  .deliverables-grid, .ba-grid, .card-grid{grid-template-columns:1fr;}
+  .hero h1{font-size:2.3rem;}
+  .nav-links{display:none;}
+  .stats-grid, .lifecycle-grid, .framework-grid, .quicklinks-grid{grid-template-columns:1fr;}
+  .net-node{width:82px;}
+  .net-node .hexi{width:42px; height:42px;}
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"Richard Vincent",
+  "url":"https://richvince.github.io/Richard-Vincent/",
+  "sameAs":["https://www.linkedin.com/in/richvince","https://github.com/RichVince","https://www.credly.com/users/richard-vincent.29374cc2"],
+  "jobTitle":"Cybersecurity and GRC Professional",
+  "address":{"@type":"PostalAddress","addressLocality":"Atlanta","addressRegion":"GA","addressCountry":"US"},
+  "knowsAbout":["Governance Risk and Compliance","Cyber Risk","Security Auditing","NIST CSF","ISO 27001","AI Governance","Splunk"]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+<div id="cursor-glow"></div>
+<div id="scroll-progress"></div>
+
+<!-- ══════════════ NAV ══════════════ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <img class="brand-mark" src="RVlogo.png" alt="Richard Vincent RV logo" width="42" height="42" />
+      <span class="brand-text">
+        <span class="brand-name">Richard Vincent</span>
+        <span class="brand-sub">GRC | Cyber Risk | AI Governance</span>
+      </span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="#engagements">Case Studies</a></li>
+        <li><a href="#expertise">Experience</a></li>
+        <li><a href="#frameworks">Frameworks</a></li>
+        <li><a href="#journey">Credentials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a class="icon-link" href="https://github.com/RichVince" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C6.48 2 2 6.58 2 12.19c0 4.49 2.87 8.3 6.84 9.64.5.1.68-.22.68-.49v-1.92c-2.78.62-3.37-1.36-3.37-1.36-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.9 1.57 2.36 1.12 2.94.86.09-.66.35-1.12.64-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.35 4.8-4.58 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.19C22 6.58 17.52 2 12 2Z"/></svg>
+      </a>
+      <a class="icon-link" href="https://www.linkedin.com/in/richvince" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10.5v6M7.5 7.6v.01M12 16.5v-3.6c0-1.4.9-2.4 2.2-2.4 1.2 0 1.8.9 1.8 2.4v3.6"/></svg>
+      </a>
+      <a class="btn btn-secondary" href="Richard_Vincent_GRC_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker"><span class="kicker-dot"></span>Atlanta-based · Open to GRC and cyber risk roles</div>
+      <h1>Technical security insight.<br /><span class="hero-grad">Business-focused risk decisions.</span></h1>
+      <p class="hero-lead">Cybersecurity and GRC professional with 9+ years in enterprise IT and network infrastructure. I translate technical evidence into clear risks, control findings, remediation priorities, and stakeholder-ready documentation—while developing focused capability in AI governance.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="Richard_Vincent_GRC_Resume.pdf" target="_blank" rel="noopener">View Resume</a>
+        <a class="btn btn-secondary" href="blog.html" target="_blank" rel="noopener">View Audit Reports</a>
+        <a class="btn btn-ghost" href="assessment-assistant.html" target="_blank" rel="noopener">Launch GRC Assistant →</a>
+      </div>
+      <div class="hero-tags">
+        <span class="hero-tag">NIST CSF 2.0</span>
+        <span class="hero-tag">ISO 27001:2022</span>
+        <span class="hero-tag">CIS Controls v8</span>
+        <span class="hero-tag">CompTIA Security+</span>
+        <span class="hero-tag">Splunk Core Certified User</span>
+        <span class="hero-tag">Atlanta, GA</span>
+      </div>
+    </div>
+
+    <!-- Living Governance Network -->
+    <aside class="network-card" id="tilt-card" aria-label="Governance network diagram">
+      <div class="network-label">
+        <span>Living Governance Network</span>
+        <span class="network-live"><span class="dot"></span>Active</span>
+      </div>
+      <div class="network-wrap">
+        <svg viewBox="0 0 600 600" aria-hidden="true">
+          <defs>
+            <linearGradient id="lineGrad" x1="0" y1="0" x2="600" y2="600" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#4C7EFF"/>
+              <stop offset="1" stop-color="#9B6BFF"/>
+            </linearGradient>
+          </defs>
+          <polygon class="net-ring" points="300,80 490.5,190 490.5,410 300,520 109.5,410 109.5,190" />
+          <path id="lineGov" class="net-line" d="M300,300 L300,80" />
+          <path id="lineCom" class="net-line" d="M300,300 L490.5,190" />
+          <path id="lineAig" class="net-line" d="M300,300 L490.5,410" />
+          <path id="lineStr" class="net-line" d="M300,300 L300,520" />
+          <path id="lineSec" class="net-line" d="M300,300 L109.5,410" />
+          <path id="lineRis" class="net-line" d="M300,300 L109.5,190" />
+          <circle class="net-dot" r="3.2"><animateMotion dur="3.2s" repeatCount="indefinite" begin="0s"><mpath href="#lineGov"/></animateMotion></circle>
+          <circle class="net-dot" r="3.2"><animateMotion dur="3.6s" repeatCount="indefinite" begin="0.4s"><mpath href="#lineCom"/></animateMotion></circle>
+          <circle class="net-dot" r="3.2"><animateMotion dur="3s" repeatCount="indefinite" begin="0.9s"><mpath href="#lineAig"/></animateMotion></circle>
+          <circle class="net-dot" r="3.2"><animateMotion dur="3.4s" repeatCount="indefinite" begin="1.3s"><mpath href="#lineStr"/></animateMotion></circle>
+          <circle class="net-dot" r="3.2"><animateMotion dur="3.1s" repeatCount="indefinite" begin="0.6s"><mpath href="#lineSec"/></animateMotion></circle>
+          <circle class="net-dot" r="3.2"><animateMotion dur="3.5s" repeatCount="indefinite" begin="1.7s"><mpath href="#lineRis"/></animateMotion></circle>
+        </svg>
+
+        <div class="net-hub">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>
+          <b>Business<br />Confidence</b>
+        </div>
+
+        <div class="net-node" style="top:13.3%; left:50%;">
+          <div class="hexi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l8 3v5c0 5-3.4 8.4-8 10-4.6-1.6-8-5-8-10V6l8-3Z"/></svg></div>
+          <span>Governance</span>
+        </div>
+        <div class="net-node" style="top:31.7%; left:81.75%;">
+          <div class="hexi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 4h6l1 3h3v2H5V7h3l1-3Z"/><path d="M6 9h12l-1 11H7L6 9Z"/></svg></div>
+          <span>Compliance</span>
+        </div>
+        <div class="net-node" style="top:68.3%; left:81.75%;">
+          <div class="hexi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 4a3 3 0 0 0-3 3v1a3 3 0 0 0-1 5.6V15a3 3 0 0 0 3 3h1"/><path d="M15 4a3 3 0 0 1 3 3v1a3 3 0 0 1 1 5.6V15a3 3 0 0 1-3 3h-1"/><path d="M9 4h6v16H9z" opacity="0"/></svg></div>
+          <span>AI Governance</span>
+        </div>
+        <div class="net-node" style="top:86.7%; left:50%;">
+          <div class="hexi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="8" r="2.6"/><path d="M4 19c.6-3 2.4-4.6 5-4.6S13.4 16 14 19"/><circle cx="17" cy="9" r="2.1"/><path d="M15.2 19c.4-2.4 1.8-3.7 3.8-3.7"/></svg></div>
+          <span>Business Strategy</span>
+        </div>
+        <div class="net-node" style="top:68.3%; left:18.25%;">
+          <div class="hexi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div>
+          <span>Security</span>
+        </div>
+        <div class="net-node" style="top:31.7%; left:18.25%;">
+          <div class="hexi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4"/><circle cx="12" cy="17" r="0.6" fill="currentColor"/></svg></div>
+          <span>Risk</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ══════════════ PHILOSOPHY ══════════════ -->
+<section class="section" id="philosophy" style="padding-top:20px; padding-bottom:64px;">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Working Principles</div>
+      <h2 class="section-title">How I turn evidence into action.</h2>
+      <p class="section-intro">Four principles that shape every assessment, finding, and recommendation in this portfolio — and that carry over directly into how I'd operate as an analyst on a real team.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card reveal">
+        <div class="card-tag">Principle 01</div>
+        <h3>Evidence Before Opinion</h3>
+        <p>Every finding traces back to a specific observation — a log setting, an account list, a policy gap — not a general impression. If it isn't documented, it isn't a finding.</p>
+      </article>
+      <article class="card reveal reveal-delay-1">
+        <div class="card-tag">Principle 02</div>
+        <h3>Frameworks as a Shared Language</h3>
+        <p>NIST CSF, ISO 27001, and CIS Controls give findings a common vocabulary auditors, engineers, and executives can all work from — so citations are explicit, never implied.</p>
+      </article>
+      <article class="card reveal reveal-delay-2">
+        <div class="card-tag">Principle 03</div>
+        <h3>Technical Fluency Behind Governance</h3>
+        <p>SOC-level exposure to logs, incidents, and indicators means control gaps get assessed with a working understanding of what the underlying system is actually doing.</p>
+      </article>
+      <article class="card reveal reveal-delay-3">
+        <div class="card-tag">Principle 04</div>
+        <h3>Human Judgment, AI-Assisted</h3>
+        <p>AI tooling can accelerate drafting and pattern recognition, but every recommendation in this portfolio is reviewed and owned by a person before it's called finished.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ QUICK LINKS ══════════════ -->
+<section class="quicklinks-section">
+  <div class="container">
+    <div class="quicklinks-grid">
+      <a class="quicklink reveal" href="Richard_Vincent_GRC_Resume.pdf" target="_blank" rel="noopener">
+        <div class="qicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5Z"/><path d="M14 3v5h5"/></svg></div>
+        <h3>Resume</h3>
+        <p>View or download my professional resume.</p>
+        <span class="qarrow">Open <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="quicklink reveal reveal-delay-1" href="#engagements">
+        <div class="qicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
+        <h3>Case Studies</h3>
+        <p>Explore five practical, framework-mapped GRC assessments.</p>
+        <span class="qarrow">Browse <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="quicklink reveal reveal-delay-2" href="#expertise">
+        <div class="qicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2 3 6v6c0 5 3.8 8.7 9 10 5.2-1.3 9-5 9-10V6l-9-4Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+        <h3>Credentials</h3>
+        <p>Review certifications, applied frameworks, and active development.</p>
+        <span class="qarrow">Review <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+      <a class="quicklink reveal reveal-delay-3" href="#contact">
+        <div class="qicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+        <h3>Contact</h3>
+        <p>Get in touch about GRC, compliance, or risk analyst roles.</p>
+        <span class="qarrow">Connect <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ STATS ══════════════ -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <article class="stat-card reveal"><span class="stat-number" data-target="9" data-suffix="+">0</span><p class="stat-desc">Years supporting enterprise IT and network infrastructure environments</p></article>
+      <article class="stat-card reveal reveal-delay-1"><span class="stat-number" data-target="5">0</span><p class="stat-desc">Structured GRC case studies with findings, risk ratings, and remediation plans</p></article>
+      <article class="stat-card reveal reveal-delay-2"><span class="stat-number" data-target="20" data-suffix="+">0</span><p class="stat-desc">Documented control findings across identity, logging, data, patching, and governance</p></article>
+      <article class="stat-card reveal reveal-delay-3"><span class="stat-number" data-target="3">0</span><p class="stat-desc">Applied control frameworks: NIST CSF, ISO 27001, and CIS Controls</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SAMPLE FINDING SPOTLIGHT ══════════════ -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Sample Output</div>
+      <h2 class="section-title">What a finding looks like.</h2>
+      <p class="section-intro">A representative finding pulled from the Access Control &amp; Identity Management audit — the same structure used across all five reports: observation, framework citation, prioritized recommendation, and control maturity.</p>
+    </div>
+    <div class="finding-spotlight reveal">
+      <div class="spot-topbar">
+        <span class="spot-ref">MCG · Access Control Assessment</span>
+        <span class="spot-status"><span class="dot"></span>Portfolio Case Study</span>
+      </div>
+      <div class="spot-body">
+        <div class="spot-main">
+          <div class="spot-header">
+            <div>
+              <div class="spot-id">Finding F-001</div>
+              <div class="spot-title">Active Accounts for Departed Employees</div>
+            </div>
+            <span class="risk-badge risk-high">▲ High</span>
+          </div>
+          <div class="spot-block">
+            <div class="spot-block-label">Observation</div>
+            <p>3 former employee accounts remain active in the M365 tenant (departed 47, 63, and 91 days prior) with unrestricted SharePoint access. No offboarding checklist in use.</p>
+          </div>
+          <div class="citation-row" style="margin-bottom:16px;">
+            <span class="citation">NIST CSF PR.AA-01</span>
+            <span class="citation">ISO 27001 A.5.16</span>
+            <span class="citation">CIS Control 6</span>
+          </div>
+          <div class="spot-block" style="margin-bottom:0;">
+            <div class="spot-block-label">Recommendation · Priority: Immediate</div>
+            <p>Disable all 3 accounts within 24 hours. Implement automated offboarding via Entra ID Lifecycle Workflows.</p>
+          </div>
+        </div>
+        <div class="spot-side">
+          <div>
+            <span class="maturity-label">Control Maturity</span>
+            <div class="maturity-bar-wrap"><div class="maturity-bar" id="maturityBar"></div></div>
+            <span class="maturity-val">4/5 Controls</span>
+          </div>
+          <div class="mini-findings">
+            <div class="mini-finding"><span class="mini-finding-name">MFA Coverage</span><span class="mini-badge risk-high">14/22 Users</span></div>
+            <div class="mini-finding"><span class="mini-finding-name">Logging &amp; Monitoring</span><span class="mini-badge risk-high">Not Configured</span></div>
+            <div class="mini-finding"><span class="mini-finding-name">Patch Compliance</span><span class="mini-badge risk-med">3 Devices Late</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ ENVIRONMENT ══════════════ -->
+<section class="section" id="environment">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Portfolio Environment</div>
+      <h2 class="section-title">Meridian Consulting Group</h2>
+      <p class="section-intro">All portfolio projects are scoped to a consistent fictional organization — giving the work real context, continuity, and business relevance rather than disconnected exercises.</p>
+    </div>
+    <div class="env-wrapper reveal">
+      <div>
+        <h3>The Business Scenario</h3>
+        <p>Meridian Consulting Group is a 22-employee professional services firm operating in a Microsoft 365 cloud environment. No dedicated IT or security staff — several common small-business security gaps requiring governance, audit, risk management, and control improvement.</p>
+        <div class="disclaimer"><strong>Note:</strong> Meridian Consulting Group is a fictional organization created for educational and portfolio demonstration purposes only.</div>
+      </div>
+      <ul class="env-list">
+        <li><strong>Industry:</strong> Professional Services / Business Consulting</li>
+        <li><strong>Size:</strong> 22 employees, Atlanta GA</li>
+        <li><strong>Technology:</strong> Microsoft 365, SharePoint, OneDrive, Windows endpoints</li>
+        <li><strong>Security State:</strong> No security team, partial MFA, limited monitoring</li>
+        <li><strong>GRC Need:</strong> Policies, audits, access reviews, risk register, vendor oversight</li>
+        <li><strong>Audit Scope:</strong> All 5 reports cover distinct control domains for this org</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ TOOL DEMO ══════════════ -->
+<section class="section" id="tool-demo" style="padding-top:0;">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Featured Tool Demo</div>
+      <h2 class="section-title">AI-Assisted GRC Assessment Assistant</h2>
+      <p class="section-intro">Interactive portfolio demo showing how a GRC assessment moves from intake and evidence collection to questionnaire-driven analysis and draft reporting. All outputs require human review before any real-world use.</p>
+    </div>
+    <div class="audit-feature reveal">
+      <div class="audit-meta">
+        <div class="meta-item"><span>Workflow</span><strong>Intake → Evidence → Questions → Draft Report</strong></div>
+        <div class="meta-item"><span>Purpose</span><strong>Portfolio Demonstration</strong></div>
+        <div class="meta-item"><span>Output</span><strong>Draft Readiness Report</strong></div>
+        <div class="meta-item"><span>Important</span><strong>Human Review Required</strong></div>
+      </div>
+      <div>
+        <span class="feature-tag">Interactive Project</span>
+        <h3>Structured GRC Intake and Reporting Workflow</h3>
+        <p>Demonstrates how GRC assessment work can be organized into a repeatable process: company intake, evidence upload, questionnaire-based analysis, and AI-assisted draft reporting. Built to show process thinking, reporting structure, and framework-aware recommendations.</p>
+        <ul class="process-list">
+          <li>Company profile intake</li>
+          <li>Evidence upload workflow</li>
+          <li>Security questionnaire capture</li>
+          <li>AI-assisted draft findings and recommendations</li>
+          <li>Framework-aligned reporting structure</li>
+        </ul>
+        <div class="cta-row"><a class="btn btn-primary" href="assessment-assistant.html" target="_blank" rel="noopener">Launch Demo</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ PROJECTS ══════════════ -->
+<section class="section" id="engagements">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Portfolio Engagements</div>
+      <h2 class="section-title">Five job-relevant GRC case studies.</h2>
+      <p class="section-intro">Each simulated assessment produces concrete analyst work: scoped evidence review, control findings, risk ratings, framework mapping, and prioritized remediation.</p>
+    </div>
+    <div class="projects-list">
+
+      <article class="project-card reveal">
+        <div class="project-aside">
+          <div><div class="proj-num">Project · 01</div><div style="margin-top:7px;"><span class="proj-status">Completed</span></div></div>
+          <div class="proj-attr"><label>Domain</label><span>Access Control &amp; Identity</span></div>
+          <div class="proj-attr"><label>Risk Rating</label><span class="risk-high-text">High</span></div>
+          <div class="proj-attr"><label>Findings</label><span>4 documented</span></div>
+          <div class="proj-citations">
+            <span class="proj-cite cite-blue">ISO 27001 A.5.16</span>
+            <span class="proj-cite cite-blue">NIST PR.AA</span>
+            <span class="proj-cite cite-purple">CIS Control 6</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3>Access Control &amp; Identity Management Audit</h3>
+          <p class="project-desc">Reviewed user account hygiene, MFA enforcement, shared account usage, and offboarding procedures for Meridian's Microsoft 365 environment. Identified critical gaps including three active accounts for departed employees and MFA disabled for 14 of 22 users.</p>
+          <div class="deliverables-label">What Was Produced</div>
+          <div class="deliverables-grid">
+            <div class="deliverable">Scoped audit with defined evidence review methodology</div>
+            <div class="deliverable">4 findings with observation, risk statement &amp; framework citation</div>
+            <div class="deliverable">Prioritized remediation table (Immediate / 30 Day / 90 Day)</div>
+            <div class="deliverable">Control maturity assessment across 5 access control areas</div>
+          </div>
+          <a class="proj-link" href="blog.html" target="_blank" rel="noopener">View Full Audit Report →</a>
+        </div>
+      </article>
+
+      <article class="project-card reveal reveal-delay-1">
+        <div class="project-aside">
+          <div><div class="proj-num">Project · 02</div><div style="margin-top:7px;"><span class="proj-status">Completed</span></div></div>
+          <div class="proj-attr"><label>Domain</label><span>Logging &amp; Monitoring</span></div>
+          <div class="proj-attr"><label>Risk Rating</label><span class="risk-high-text">High</span></div>
+          <div class="proj-attr"><label>Findings</label><span>4 documented</span></div>
+          <div class="proj-citations">
+            <span class="proj-cite cite-blue">ISO 27001 A.8.15</span>
+            <span class="proj-cite cite-blue">NIST DE.AE</span>
+            <span class="proj-cite cite-purple">CIS Control 8</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3>Security Logging &amp; Monitoring Readiness Review</h3>
+          <p class="project-desc">Assessed Microsoft 365 Unified Audit Log coverage, alert policy configuration, log retention period, and whether any process exists for reviewing security events. Found the organization completely unable to detect or investigate a security incident.</p>
+          <div class="deliverables-label">What Was Produced</div>
+          <div class="deliverables-grid">
+            <div class="deliverable">Audit log coverage gap analysis across M365 workloads</div>
+            <div class="deliverable">Alert policy gap findings with BEC threat context</div>
+            <div class="deliverable">Log retention policy assessment vs. 12-month industry standard</div>
+            <div class="deliverable">Detective control maturity assessment with remediation table</div>
+          </div>
+          <a class="proj-link" href="blog.html" target="_blank" rel="noopener">View Full Audit Report →</a>
+        </div>
+      </article>
+
+      <article class="project-card reveal reveal-delay-2">
+        <div class="project-aside">
+          <div><div class="proj-num">Project · 03</div><div style="margin-top:7px;"><span class="proj-status">Completed</span></div></div>
+          <div class="proj-attr"><label>Domain</label><span>Data Protection &amp; Backup</span></div>
+          <div class="proj-attr"><label>Risk Rating</label><span class="risk-med-text">Medium</span></div>
+          <div class="proj-attr"><label>Findings</label><span>4 documented</span></div>
+          <div class="proj-citations">
+            <span class="proj-cite cite-blue">ISO 27001 A.8.13</span>
+            <span class="proj-cite cite-blue">NIST PR.DS</span>
+            <span class="proj-cite cite-purple">CIS Control 11</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3>Data Protection &amp; Backup Controls Assessment</h3>
+          <p class="project-desc">Evaluated backup coverage and restoration testing, workstation data risk, data classification posture, and BitLocker encryption status across employee devices. Found backups untested and four workstations storing client deliverables with no backup coverage.</p>
+          <div class="deliverables-label">What Was Produced</div>
+          <div class="deliverables-grid">
+            <div class="deliverable">Backup design vs. operating effectiveness analysis</div>
+            <div class="deliverable">Data classification gap finding with 3-tier recommendation</div>
+            <div class="deliverable">Encryption posture assessment across workstation sample</div>
+            <div class="deliverable">Ransomware risk context and recovery readiness rating</div>
+          </div>
+          <a class="proj-link" href="blog.html" target="_blank" rel="noopener">View Full Audit Report →</a>
+        </div>
+      </article>
+
+      <article class="project-card reveal reveal-delay-3">
+        <div class="project-aside">
+          <div><div class="proj-num">Project · 04</div><div style="margin-top:7px;"><span class="proj-status">Completed</span></div></div>
+          <div class="proj-attr"><label>Domain</label><span>Vulnerability &amp; Patch Mgmt</span></div>
+          <div class="proj-attr"><label>Risk Rating</label><span class="risk-high-text">High</span></div>
+          <div class="proj-attr"><label>Findings</label><span>4 documented</span></div>
+          <div class="proj-citations">
+            <span class="proj-cite cite-blue">ISO 27001 A.8.8</span>
+            <span class="proj-cite cite-blue">NIST PR.PS</span>
+            <span class="proj-cite cite-purple">CIS Controls 1 &amp; 7</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3>Vulnerability &amp; Patch Management Audit</h3>
+          <p class="project-desc">Reviewed asset inventory accuracy, OS patch status across sampled workstations, end-of-life software exposure, and network device firmware currency. Found two Windows 10 EOL devices, three workstations with patches 45–91 days outstanding, and no asset register.</p>
+          <div class="deliverables-label">What Was Produced</div>
+          <div class="deliverables-grid">
+            <div class="deliverable">EOL software risk finding with CVE exposure context</div>
+            <div class="deliverable">Patch cadence gap analysis per sampled device</div>
+            <div class="deliverable">Asset inventory gap finding and minimum register recommendation</div>
+            <div class="deliverable">Network firmware remediation recommendation with SLA guidance</div>
+          </div>
+          <a class="proj-link" href="blog.html" target="_blank" rel="noopener">View Full Audit Report →</a>
+        </div>
+      </article>
+
+      <article class="project-card reveal reveal-delay-4">
+        <div class="project-aside">
+          <div><div class="proj-num">Project · 05</div><div style="margin-top:7px;"><span class="proj-status">Completed</span></div></div>
+          <div class="proj-attr"><label>Domain</label><span>Governance &amp; Policy</span></div>
+          <div class="proj-attr"><label>Risk Rating</label><span class="risk-med-text">Medium</span></div>
+          <div class="proj-attr"><label>Findings</label><span>4 documented</span></div>
+          <div class="proj-citations">
+            <span class="proj-cite cite-blue">ISO 27001 A.5.1</span>
+            <span class="proj-cite cite-blue">NIST GV.PO</span>
+            <span class="proj-cite cite-purple">CIS Control 14 &amp; 17</span>
+          </div>
+        </div>
+        <div class="project-body">
+          <h3>Security Governance &amp; Policy Framework Review</h3>
+          <p class="project-desc">Assessed policy framework completeness, security awareness training program, third-party vendor security requirements, and incident response readiness. Found zero formal policies, no training records, vendors with system access but no contractual security obligations, and no IR contact list.</p>
+          <div class="deliverables-label">What Was Produced</div>
+          <div class="deliverables-grid">
+            <div class="deliverable">Policy inventory gap analysis vs. ISO 27001 Clause 5</div>
+            <div class="deliverable">Security awareness training gap with phishing risk context</div>
+            <div class="deliverable">Vendor management finding for 3 vendors with system access</div>
+            <div class="deliverable">IR readiness gap — root cause analysis for all 5 audits</div>
+          </div>
+          <a class="proj-link" href="blog.html" target="_blank" rel="noopener">View Full Audit Report →</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ AUDIT COLLECTION ══════════════ -->
+<section class="section" id="audit-reports" style="padding-top:0;">
+  <div class="container">
+    <div class="audit-feature reveal">
+      <div class="audit-meta">
+        <div class="meta-item"><span>Reports</span><strong>5 Published</strong></div>
+        <div class="meta-item"><span>Frameworks</span><strong>NIST CSF · ISO 27001 · CIS</strong></div>
+        <div class="meta-item"><span>Environment</span><strong>Meridian Consulting Group</strong></div>
+        <div class="meta-item"><span>Risk Ratings</span><strong>High / Medium / Low</strong></div>
+      </div>
+      <div>
+        <span class="feature-tag">Full Report Collection</span>
+        <h3>Security Audit Report Series — Meridian Consulting Group</h3>
+        <p>Five structured audit reports covering the most critical control domains for a small business cloud environment. Each report follows a consistent format: scope, methodology, findings with framework citations, recommendations with priority tiers, and a control maturity assessment.</p>
+        <ul class="process-list">
+          <li>01 · Access Control &amp; Identity Management Audit — High Risk</li>
+          <li>02 · Security Logging &amp; Monitoring Readiness Review — High Risk</li>
+          <li>03 · Data Protection &amp; Backup Controls Assessment — Medium Risk</li>
+          <li>04 · Vulnerability &amp; Patch Management Audit — High Risk</li>
+          <li>05 · Security Governance &amp; Policy Framework Review — Medium Risk</li>
+        </ul>
+        <div class="cta-row"><a class="btn btn-primary" href="blog.html" target="_blank" rel="noopener">View All Audit Reports →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ METHODOLOGY ══════════════ -->
+<section class="section" id="lifecycle">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Methodology</div>
+      <h2 class="section-title">Audit methodology and GRC workflow.</h2>
+      <p class="section-intro">Each audit report follows a practical GRC methodology that mirrors how a junior analyst supports control assessments, audit readiness, findings documentation, and remediation tracking.</p>
+    </div>
+    <div class="lifecycle-grid">
+      <article class="life-step reveal"><span class="life-num">01 · Identify</span><h3>Scope &amp; Environment</h3><p>Define the business environment, assets, systems, and control areas in scope for each engagement.</p></article>
+      <article class="life-step reveal reveal-delay-1"><span class="life-num">02 · Assess</span><h3>Evidence Review</h3><p>Review evidence, determine control gaps, and evaluate risk exposure per finding across the control domain.</p></article>
+      <article class="life-step reveal reveal-delay-2"><span class="life-num">03 · Document</span><h3>Findings Report</h3><p>Write structured findings with observations, risks, framework citations, and maturity notes aligned to controls.</p></article>
+      <article class="life-step reveal reveal-delay-3"><span class="life-num">04 · Remediate</span><h3>Prioritized Actions</h3><p>Recommend prioritized remediation actions with named owners, urgency tiers, and effort estimates.</p></article>
+      <article class="life-step reveal reveal-delay-4"><span class="life-num">05 · Monitor</span><h3>Ongoing Improvement</h3><p>Support continuous improvement through review schedules and ongoing audit readiness tracking.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ BEFORE / AFTER ══════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Program Maturity</div>
+      <h2 class="section-title">Before and after the GRC assessment series.</h2>
+      <p class="section-intro">The business value of the audit work: moving Meridian from undocumented, informal security practices toward a documented, framework-aligned governance and control baseline.</p>
+    </div>
+    <div class="ba-grid">
+      <article class="ba-card reveal">
+        <div><span class="ba-tag ba-tag-before">Before Assessment</span></div>
+        <h3>Initial State — Control Gaps</h3>
+        <ul class="ba-list before">
+          <li>Three former employee accounts still active in M365</li>
+          <li>MFA not enforced for 14 of 22 users</li>
+          <li>No alert policies configured — zero detection capability</li>
+          <li>Backup restoration never tested</li>
+          <li>Two EOL Windows 10 devices, three with patches 45–91 days late</li>
+          <li>No information security policies, training, or IR plan</li>
+        </ul>
+      </article>
+      <article class="ba-card reveal reveal-delay-1">
+        <div><span class="ba-tag ba-tag-after">After Recommendations</span></div>
+        <h3>Improvement Roadmap — Defined Outputs</h3>
+        <ul class="ba-list after">
+          <li>Immediate account revocation + offboarding checklist documented</li>
+          <li>M365 Conditional Access MFA enforcement recommended</li>
+          <li>5 alert policies defined; log retention path recommended</li>
+          <li>Quarterly backup test procedure and OneDrive KFM policy proposed</li>
+          <li>EOL upgrade path and patch cadence SLA established</li>
+          <li>Policy template, training platform, vendor clause, and IR contact sheet defined</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ TECHNICAL FOUNDATION ══════════════ -->
+<section class="section" id="expertise">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Expertise · Technical Foundation</div>
+      <h2 class="section-title">SOC experience that strengthens GRC analysis.</h2>
+      <p class="section-intro">SOC portfolio demonstrates hands-on security work in incident investigation, Windows log analysis, phishing review, DNS analysis, and web attack investigation — building the intuition needed to assess controls, risks, and evidence behind governance work.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card reveal">
+        <div class="card-tag">SOC Bridge</div>
+        <h3>Incident Investigation Experience</h3>
+        <p>Practical investigation work involving network traffic, endpoint activity, and suspicious accounts — translates directly into understanding what detective controls need to surface and preserve.</p>
+      </article>
+      <article class="card reveal reveal-delay-1">
+        <div class="card-tag">Evidence Review</div>
+        <h3>Log Analysis &amp; Indicator Review</h3>
+        <p>Reviewing logs, indicators, and findings builds intuition for what constitutes strong audit evidence, what gaps look like in practice, and how to frame control deficiencies for a non-technical audience.</p>
+      </article>
+      <article class="card reveal reveal-delay-2">
+        <div class="card-tag">Career Direction</div>
+        <h3>Technical-to-GRC Positioning</h3>
+        <p>Technical exposure combined with governance documentation, risk thinking, and compliance-focused control assessment positions me for roles that need analysts who understand both sides.</p>
+        <div class="cta-row" style="margin-top:16px;"><a class="btn btn-secondary" href="https://richvince.github.io" target="_blank" rel="noopener">View SOC Portfolio</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FRAMEWORKS ══════════════ -->
+<section class="section" id="frameworks">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Frameworks</div>
+      <h2 class="section-title">Control and compliance alignment.</h2>
+      <p class="section-intro">These frameworks are applied across all five audit reports — not just listed as keywords. Each report cites specific control references from the applicable Annex, function, or control number.</p>
+    </div>
+    <div class="framework-grid">
+      <article class="framework-card reveal"><span class="fw-label">NIST CSF 2.0</span><h3>Govern, Identify, Protect, Detect, Respond, Recover</h3><p>Used for cybersecurity governance, risk communication, and control function mapping across all five audit domains.</p></article>
+      <article class="framework-card reveal reveal-delay-1"><span class="fw-label">ISO 27001:2022</span><h3>Information Security Management Controls</h3><p>Applied at the Annex A control level — A.5, A.6, A.8 — for access, policy, logging, backup, and vulnerability findings.</p></article>
+      <article class="framework-card reveal reveal-delay-2"><span class="fw-label">CIS Controls v8</span><h3>Prioritized Technical Safeguards</h3><p>Used to connect audit recommendations to specific, implementable safeguards — Controls 1, 3, 6, 7, 8, 11, 14, 17.</p></article>
+      <article class="framework-card reveal reveal-delay-3"><span class="fw-label">PCI DSS Foundation</span><h3>Payment Security and Compliance Evidence</h3><p>Foundational learning path for payment security, compliance evidence, and control validation methodology.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ AI GOVERNANCE ══════════════ -->
+<section class="section" id="ai-governance" style="padding-top:0;">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Developing Specialization</div>
+      <h2 class="section-title">Connecting established GRC to AI governance.</h2>
+      <p class="section-intro">My AI governance work builds on the same disciplines used in security GRC: accountable ownership, documented risk decisions, control evidence, lifecycle monitoring, and human oversight.</p>
+    </div>
+    <div class="card-grid">
+      <article class="card reveal">
+        <div class="card-tag">NIST AI RMF</div>
+        <h3>Govern · Map · Measure · Manage</h3>
+        <p>Applying a risk-based structure to AI use-case intake, impact analysis, ownership, measurement, treatment, and ongoing oversight.</p>
+      </article>
+      <article class="card reveal reveal-delay-1">
+        <div class="card-tag">AI Risk</div>
+        <h3>Practical Risk Categories</h3>
+        <p>Assessing privacy, bias, hallucination, security, misuse, transparency, model drift, vendor dependency, and human-oversight concerns.</p>
+      </article>
+      <article class="card reveal reveal-delay-2">
+        <div class="card-tag">Portfolio Direction</div>
+        <h3>Governance Artifacts</h3>
+        <p>Developing AI acceptable-use guidance, an AI system inventory, impact-assessment workflow, risk register, and control-monitoring approach.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ JOURNEY ══════════════ -->
+<section class="section" id="journey">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Professional Journey</div>
+      <h2 class="section-title">Certification and skills progression.</h2>
+      <p class="section-intro">The path from technical security foundations to GRC-focused practice — each stage labeled with where it actually stands today, not where it's aspirational.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item tl-done reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-status">Completed</span>
+          <h3>Google Cybersecurity Professional Certificate</h3>
+          <p>Foundational cybersecurity training covering security analysis, incident handling, and the technical context that underpins GRC work.</p>
+        </div>
+      </div>
+      <div class="timeline-item tl-done reveal reveal-delay-1">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-status">Completed</span>
+          <h3>CompTIA Security+ Certified</h3>
+          <p>Security foundations supporting governance, risk, compliance, and enterprise security understanding.</p>
+        </div>
+      </div>
+      <div class="timeline-item tl-done reveal reveal-delay-2">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-status">Certified</span>
+          <h3>Splunk Core Certified User</h3>
+          <p>Validated foundational ability to search, analyze, and report on machine data—supporting evidence review, logging assessments, and control-monitoring discussions.</p>
+        </div>
+      </div>
+      <div class="timeline-item tl-active reveal reveal-delay-3">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-status">Ongoing</span>
+          <h3>SOC Portfolio — Investigation Practice</h3>
+          <p>Hands-on incident investigation, log analysis, and phishing/DNS review — the technical bridge into GRC. <a href="https://richvince.github.io" target="_blank" rel="noopener">View the SOC portfolio →</a></p>
+        </div>
+      </div>
+      <div class="timeline-item tl-active reveal reveal-delay-4">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-status">In Progress</span>
+          <h3>GRC Mastery</h3>
+          <p>Training focused on frameworks, audits, risk assessments, compliance documentation, and governance workflows.</p>
+        </div>
+      </div>
+      <div class="timeline-item tl-active reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-status">Active Study</span>
+          <h3>NIST AI RMF</h3>
+          <p>Studying the AI Risk Management Framework to extend governance and risk practice to AI systems.</p>
+        </div>
+      </div>
+      <div class="timeline-item tl-plan reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-status">Near-Term Plan</span>
+          <h3>ISO/IEC 27001 Lead Auditor</h3>
+          <p>Planned certification to formalize audit methodology and lead-auditor-level ISMS assessment skills.</p>
+        </div>
+      </div>
+      <div class="timeline-item tl-plan reveal reveal-delay-1">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <span class="timeline-status">2027 Objective</span>
+          <h3>CISA</h3>
+          <p>Longer-term goal — Certified Information Systems Auditor, building toward senior IT audit credentialing.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Let’s discuss your GRC, cyber risk, or compliance needs.</h2>
+      <p class="section-intro">I am open to Atlanta-area and remote opportunities where technical security experience, practical risk analysis, and clear documentation strengthen the team.</p>
+    </div>
+    <div class="contact-card reveal">
+      <div class="contact-row"><strong>Resume</strong><a href="Richard_Vincent_GRC_Resume.pdf" target="_blank" rel="noopener">View Resume PDF</a></div>
+      <div class="contact-row"><strong>Audit Reports</strong><a href="blog.html" target="_blank" rel="noopener">View GRC Audit Report Collection</a></div>
+      <div class="contact-row"><strong>GRC Assistant</strong><a href="assessment-assistant.html" target="_blank" rel="noopener">Launch Interactive Demo</a></div>
+      <div class="contact-row"><strong>LinkedIn</strong><a href="https://www.linkedin.com/in/richvince" target="_blank" rel="noopener">linkedin.com/in/richvince</a></div>
+      <div class="contact-row"><strong>GitHub</strong><a href="https://github.com/RichVince" target="_blank" rel="noopener">github.com/RichVince</a></div>
+      <div class="contact-row"><strong>Credly</strong><a href="https://www.credly.com/users/richard-vincent.29374cc2" target="_blank" rel="noopener">credly.com/users/richard-vincent.29374cc2</a></div>
+      <div class="contact-row"><strong>SOC Portfolio</strong><a href="https://richvince.github.io" target="_blank" rel="noopener">richvince.github.io</a></div>
+      <div class="contact-row"><strong>Target Roles</strong><span>GRC Analyst · IT Risk Analyst · Security Compliance Analyst · IT Audit Associate</span></div>
+      <div class="contact-row"><strong>Location</strong><span>Atlanta Metropolitan Area</span></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img class="brand-mark" src="RVlogo.png" alt="Richard Vincent RV logo" width="44" height="44" />
+        <span class="brand-text">
+          <span class="brand-name">Richard Vincent</span>
+          <span class="brand-sub">GRC | Cyber Risk | AI Governance</span>
+        </span>
+      </div>
+      <div class="footer-contact">
+        <a class="footer-contact-item" href="https://www.linkedin.com/in/richvince" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10.5v6M7.5 7.6v.01M12 16.5v-3.6c0-1.4.9-2.4 2.2-2.4 1.2 0 1.8.9 1.8 2.4v3.6"/></svg>
+          linkedin.com/in/richvince
+        </a>
+        <a class="footer-contact-item" href="https://github.com/RichVince" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2C6.48 2 2 6.58 2 12.19c0 4.49 2.87 8.3 6.84 9.64.5.1.68-.22.68-.49v-1.92c-2.78.62-3.37-1.36-3.37-1.36-.45-1.19-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.05 1.53 1.05.9 1.57 2.36 1.12 2.94.86.09-.66.35-1.12.64-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.31.1-2.73 0 0 .84-.27 2.75 1.05a9.3 9.3 0 0 1 5 0c1.91-1.32 2.75-1.05 2.75-1.05.55 1.42.2 2.47.1 2.73.64.72 1.03 1.63 1.03 2.75 0 3.94-2.35 4.8-4.58 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.19C22 6.58 17.52 2 12 2Z"/></svg>
+          github.com/RichVince
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>Meridian Consulting Group is a fictional organization created for educational and portfolio demonstration purposes.</span>
+      <span>© 2026 Richard Vincent. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const pointerFine = window.matchMedia('(pointer: fine)').matches;
+
+// Navbar scroll state + progress bar
+const nav = document.getElementById('nav');
+const progress = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 20);
+  const h = document.documentElement;
+  const pct = (h.scrollTop) / (h.scrollHeight - h.clientHeight) * 100;
+  progress.style.width = pct + '%';
+}, { passive: true });
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Counter animation
+function animateCounter(el, target, suffix = '') {
+  const start = performance.now();
+  const duration = 1400;
+  const ease = t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  function tick(now) {
+    const p = Math.min((now - start) / duration, 1);
+    el.textContent = Math.round(ease(p) * target) + suffix;
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+const statObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const target = parseInt(e.target.dataset.target, 10);
+      const suffix = e.target.dataset.suffix || '';
+      animateCounter(e.target, target, suffix);
+      statObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => statObserver.observe(el));
+
+// Maturity bar fill on scroll into view
+const bar = document.getElementById('maturityBar');
+if (bar) {
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { bar.classList.add('filled'); barObserver.unobserve(bar); } });
+  }, { threshold: 0.5 });
+  barObserver.observe(bar);
+}
+
+// Scrollspy
+const sections = ['philosophy','engagements','expertise','journey','contact'].map(id => document.getElementById(id)).filter(Boolean);
+const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+const spy = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+    }
+  });
+}, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+sections.forEach(s => spy.observe(s));
+
+// Cursor glow + magnetic buttons + card tilt (desktop only, motion allowed)
+if (pointerFine && !reduceMotion) {
+  const glow = document.getElementById('cursor-glow');
+  window.addEventListener('mousemove', (e) => {
+    glow.style.transform = `translate(${e.clientX - 260}px, ${e.clientY - 260}px)`;
+  }, { passive: true });
+
+  document.querySelectorAll('.btn-primary, .btn-secondary').forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const r = btn.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width / 2;
+      const y = e.clientY - r.top - r.height / 2;
+      btn.style.transform = `translate(${x * 0.18}px, ${y * 0.35}px)`;
+    });
+    btn.addEventListener('mouseleave', () => { btn.style.transform = ''; });
+  });
+
+  const tiltCard = document.getElementById('tilt-card');
+  if (tiltCard) {
+    tiltCard.addEventListener('mousemove', (e) => {
+      const r = tiltCard.getBoundingClientRect();
+      const px = (e.clientX - r.left) / r.width - 0.5;
+      const py = (e.clientY - r.top) / r.height - 0.5;
+      tiltCard.style.transform = `perspective(900px) rotateX(${py * -5}deg) rotateY(${px * 6}deg)`;
+    });
+    tiltCard.addEventListener('mouseleave', () => { tiltCard.style.transform = 'perspective(900px) rotateX(0) rotateY(0)'; });
+  }
+}
+
+// Reduced motion fallback
+if (reduceMotion) {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  document.querySelectorAll('[data-target]').forEach(el => { el.textContent = el.dataset.target + (el.dataset.suffix || ''); });
+  if (bar) bar.classList.add('filled');
+}
+</script>
+</body>
+</html>
