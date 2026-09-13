@@ -395,6 +395,11 @@ footer{padding:56px 0 32px; border-top:1px solid var(--border);}
   *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
 }
 </style>
+<style>
+  /* Recruiter landing page: detailed material now lives on dedicated pages. */
+  main > .section:not(#applied-grc):not(#contact),
+  .stats-section { display:none !important; }
+</style>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -427,10 +432,9 @@ footer{padding:56px 0 32px; border-top:1px solid var(--border);}
     <nav aria-label="Main navigation">
       <ul class="nav-links">
         <li><a href="grc-projects.html">GRC Projects</a></li>
-        <li><a href="#engagements">Case Studies</a></li>
-        <li><a href="#expertise">Experience</a></li>
-        <li><a href="#frameworks">Frameworks</a></li>
-        <li><a href="#journey">Credentials</a></li>
+        <li><a href="blog.html">Audit Reports</a></li>
+        <li><a href="professional-profile.html">Professional Profile</a></li>
+        <li><a href="Richard_Vincent_GRC_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -441,7 +445,7 @@ footer{padding:56px 0 32px; border-top:1px solid var(--border);}
       <a class="icon-link" href="https://www.linkedin.com/in/richvince" target="_blank" rel="noopener" aria-label="LinkedIn">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7.5 10.5v6M7.5 7.6v.01M12 16.5v-3.6c0-1.4.9-2.4 2.2-2.4 1.2 0 1.8.9 1.8 2.4v3.6"/></svg>
       </a>
-      <a class="btn btn-secondary" href="grc-projects.html">GRC Projects</a>
+      <a class="btn btn-secondary" href="Richard_Vincent_GRC_Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
   </div>
 </header>
@@ -456,7 +460,7 @@ footer{padding:56px 0 32px; border-top:1px solid var(--border);}
       <h1>Technical security insight.<br /><span class="hero-grad">Business-focused risk decisions.</span></h1>
       <p class="hero-lead">Cybersecurity and GRC professional with 9+ years in enterprise IT and network infrastructure. I translate technical evidence into clear risks, control findings, remediation priorities, and stakeholder-ready documentation—while developing focused capability in AI governance.</p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="grc-projects.html">View GRC Projects</a>
+        <a class="btn btn-primary" href="Richard_Vincent_GRC_Resume.pdf" target="_blank" rel="noopener">View Resume</a>
         <a class="btn btn-secondary" href="grc-projects.html">View Applied GRC Projects</a>
         <a class="btn btn-ghost" href="assessment-assistant.html" target="_blank" rel="noopener">Launch GRC Assistant →</a>
       </div>
@@ -582,10 +586,10 @@ footer{padding:56px 0 32px; border-top:1px solid var(--border);}
         <p>Review 11 ISO 27001 and NIST CSF governance deliverables.</p>
         <span class="qarrow">Browse <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
-      <a class="quicklink reveal reveal-delay-2" href="#expertise">
+      <a class="quicklink reveal reveal-delay-2" href="professional-profile.html">
         <div class="qicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2 3 6v6c0 5 3.8 8.7 9 10 5.2-1.3 9-5 9-10V6l-9-4Z"/><path d="m9 12 2 2 4-4"/></svg></div>
-        <h3>Credentials</h3>
-        <p>Review certifications, applied frameworks, and active development.</p>
+        <h3>Professional Profile</h3>
+        <p>Review my technical foundation, frameworks, and credentials.</p>
         <span class="qarrow">Review <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
       <a class="quicklink reveal reveal-delay-3" href="#contact">
@@ -1128,6 +1132,7 @@ footer{padding:56px 0 32px; border-top:1px solid var(--border);}
       <p class="section-intro">I am open to Atlanta-area and remote opportunities where technical security experience, practical risk analysis, and clear documentation strengthen the team.</p>
     </div>
     <div class="contact-card reveal">
+      <div class="contact-row"><strong>Resume</strong><a href="Richard_Vincent_GRC_Resume.pdf" target="_blank" rel="noopener">View Resume PDF</a></div>
       <div class="contact-row"><strong>Applied GRC Projects</strong><a href="grc-projects.html">View ISO 27001 and NIST CSF project library</a></div>
       <div class="contact-row"><strong>Audit Reports</strong><a href="blog.html" target="_blank" rel="noopener">View GRC Audit Report Collection</a></div>
       <div class="contact-row"><strong>GRC Assistant</strong><a href="assessment-assistant.html" target="_blank" rel="noopener">Launch Interactive Demo</a></div>
