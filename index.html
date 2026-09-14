@@ -98,6 +98,11 @@ body::before{
 .icon-link{width:36px; height:36px; display:grid; place-items:center; border-radius:9px; border:1px solid var(--border); color:var(--muted); transition:color .2s, border-color .2s, background .2s;}
 .icon-link:hover{color:var(--text); border-color:var(--blue-border); background:var(--blue-dim);}
 .icon-link svg{width:16px; height:16px;}
+.menu-toggle{display:none; width:42px; height:42px; padding:10px; border:1px solid var(--border-2); border-radius:10px; background:rgba(255,255,255,0.04); color:var(--text); cursor:pointer; flex-direction:column; align-items:center; justify-content:center; gap:5px;}
+.menu-toggle span{display:block; width:20px; height:2px; border-radius:2px; background:currentColor; transition:transform .2s,opacity .2s;}
+.menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0;}
+.menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 
 /* ══════════════════════ SECTION BASE ══════════════════════ */
 .section{padding:100px 0;}
@@ -381,14 +386,24 @@ footer{padding:56px 0 32px; border-top:1px solid var(--border);}
   .stats-grid, .quicklinks-grid{grid-template-columns:repeat(2,1fr);}
   .network-wrap{max-width:420px; margin:6px auto 0;}
   #cursor-glow{display:none;}
+  .nav-inner{position:relative;}
+  .nav-links{display:none; position:absolute; top:68px; left:0; right:0; z-index:120; grid-template-columns:repeat(2,minmax(0,1fr)); gap:4px; padding:12px; border:1px solid var(--border-2); border-radius:14px; background:rgba(12,15,34,.98); box-shadow:var(--shadow);}
+  .nav-links.open{display:grid;}
+  .nav-links a{display:block; padding:12px 14px;}
+  .nav-right{display:none;}
+  .menu-toggle{display:flex;}
 }
 @media (max-width:720px){
   .project-card{grid-template-columns:1fr;}
   .project-aside{border-right:none; border-bottom:1px solid var(--border);}
   .deliverables-grid, .ba-grid, .card-grid{grid-template-columns:1fr;}
   .hero h1{font-size:2.3rem;}
-  .nav-links{display:none;}
+  .nav-links{grid-template-columns:1fr;}
   .stats-grid, .lifecycle-grid, .framework-grid, .quicklinks-grid{grid-template-columns:1fr;}
+  .contact-row{display:grid; grid-template-columns:1fr; align-items:start; gap:5px; padding:16px 18px;}
+  .contact-row strong{white-space:normal;}
+  .contact-row a,.contact-row span{text-align:left; overflow-wrap:anywhere;}
+  .cta-row .btn:not(.btn-ghost){width:100%; justify-content:center;}
   .net-node{width:82px;}
   .net-node .hexi{width:42px; height:42px;}
 }
@@ -431,7 +446,7 @@ footer{padding:56px 0 32px; border-top:1px solid var(--border);}
       </span>
     </a>
     <nav aria-label="Main navigation">
-      <ul class="nav-links">
+      <ul class="nav-links" id="primary-nav">
         <li><a href="grc-projects.html">GRC Projects</a></li>
         <li><a href="blog.html">Audit Reports</a></li>
         <li><a href="professional-profile.html">Professional Profile</a></li>
@@ -448,6 +463,7 @@ footer{padding:56px 0 32px; border-top:1px solid var(--border);}
       </a>
       <a class="btn btn-secondary" href="Richard_Vincent_GRC_Resume.pdf" target="_blank" rel="noopener">Resume</a>
     </div>
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
@@ -1233,6 +1249,27 @@ if (bar) {
 // Scrollspy
 const sections = ['philosophy','engagements','expertise','journey','contact'].map(id => document.getElementById(id)).filter(Boolean);
 const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+const menuToggle = document.getElementById('menu-toggle');
+const primaryNav = document.getElementById('primary-nav');
+if (menuToggle && primaryNav) {
+  menuToggle.addEventListener('click', () => {
+    const isOpen = primaryNav.classList.toggle('open');
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    menuToggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+  });
+  navLinks.forEach(link => link.addEventListener('click', () => {
+    primaryNav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Open navigation menu');
+  }));
+  document.addEventListener('click', event => {
+    if (!primaryNav.contains(event.target) && !menuToggle.contains(event.target)) {
+      primaryNav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+      menuToggle.setAttribute('aria-label', 'Open navigation menu');
+    }
+  });
+}
 const spy = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
