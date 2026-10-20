@@ -67,7 +67,7 @@ button{font:inherit;}
   z-index:100;
 }
 .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:0.95rem;}
-.brand-mark{width:42px;height:42px;flex-shrink:0;}
+.brand-mark{width:42px;height:42px;flex-shrink:0;object-fit:contain;display:block;}
 .brand-stack{display:flex;flex-direction:column;line-height:1.1;}
 .brand-stack strong{font-family:var(--serif);font-size:1.02rem;letter-spacing:-0.01em;}
 .brand-stack span{font-family:var(--mono);font-size:0.62rem;color:var(--muted-2);font-weight:500;letter-spacing:0.08em;text-transform:uppercase;}
@@ -353,11 +353,7 @@ button{font:inherit;}
 
 <div class="topbar">
   <a class="brand" href="index.html" aria-label="Richard Vincent portfolio home">
-    <svg class="brand-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs><linearGradient id="logoGrad" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4C7EFF"/><stop offset="1" stop-color="#9B6BFF"/></linearGradient></defs>
-      <path d="M8 42V8h13.5c5.8 0 9.7 3.5 9.7 8.8 0 4-2.3 6.9-6 8.1L32 42h-7.3l-6-14.6H14V42H8Zm6-19.5h6.6c3 0 4.8-1.6 4.8-4.2 0-2.6-1.8-4.1-4.8-4.1H14v8.3Z" fill="url(#logoGrad)"/>
-      <path d="M22 42 34 8h7L29 42h-7Z" fill="url(#logoGrad)" opacity="0.55"/>
-    </svg>
+    <img class="brand-mark" src="RVlogo.png" alt="Richard Vincent RV logo" width="42" height="42" />
     <div class="brand-stack">
       <strong>Richard Vincent</strong>
       <span>GRC | Cyber Risk | AI Governance</span>
