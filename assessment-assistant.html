@@ -1195,26 +1195,26 @@ function renderMeta(report) {
 function renderFinding(f) {
   const riskClass = ['Critical','High'].includes(f.riskRating) ? 'risk-high' : f.riskRating === 'Medium' ? 'risk-med' : 'risk-low';
   const scoring = f.score ? 'Likelihood ' + f.likelihood + ' × Impact ' + f.impact + ' = ' + f.score : 'Not supplied';
-  return \`
+  return `
     <div class="finding-block">
       <div class="finding-header">
-        <div class="finding-id">\${escapeHtml(f.id)}</div>
-        <div class="finding-title">\${escapeHtml(f.title)}</div>
-        <div class="risk-badge \${riskClass}">\${escapeHtml(f.riskRating)}</div>
+        <div class="finding-id">${escapeHtml(f.id)}</div>
+        <div class="finding-title">${escapeHtml(f.title)}</div>
+        <div class="risk-badge ${riskClass}">${escapeHtml(f.riskRating)}</div>
       </div>
       <div class="finding-body">
-        <p><span class="finding-label">Domain</span>\${escapeHtml(f.domain)}</p>
-        <p><span class="finding-label">Observation</span>\${escapeHtml(f.observation)}</p>
-        <p><span class="finding-label">Risk</span>\${escapeHtml(f.risk)}</p>
-        <p><span class="finding-label">Risk score</span>\${escapeHtml(scoring)}</p>
-        <p><span class="finding-label">Evidence status</span>\${escapeHtml(f.evidenceStatus || 'Human validation required')}</p>
-        <p><span class="finding-label">Traceability</span>\${escapeHtml(f.source || 'Assessment input')}</p>
-        <p><span class="finding-label">Treatment</span>\${escapeHtml(f.treatment || 'Mitigate')}</p>
-        <p><span class="finding-label">Recommendation</span>\${escapeHtml(f.recommendation || 'Review and define a proportionate corrective action.')}</p>
-        <p><span class="finding-label">Frameworks</span>\${(f.frameworks || []).map(tag => \`<span class="fw-tag">\${escapeHtml(tag)}</span>\`).join('')}</p>
+        <p><span class="finding-label">Domain</span>${escapeHtml(f.domain)}</p>
+        <p><span class="finding-label">Observation</span>${escapeHtml(f.observation)}</p>
+        <p><span class="finding-label">Risk</span>${escapeHtml(f.risk)}</p>
+        <p><span class="finding-label">Risk score</span>${escapeHtml(scoring)}</p>
+        <p><span class="finding-label">Evidence status</span>${escapeHtml(f.evidenceStatus || 'Human validation required')}</p>
+        <p><span class="finding-label">Traceability</span>${escapeHtml(f.source || 'Assessment input')}</p>
+        <p><span class="finding-label">Treatment</span>${escapeHtml(f.treatment || 'Mitigate')}</p>
+        <p><span class="finding-label">Recommendation</span>${escapeHtml(f.recommendation || 'Review and define a proportionate corrective action.')}</p>
+        <p><span class="finding-label">Frameworks</span>${(f.frameworks || []).map(tag => `<span class="fw-tag">${escapeHtml(tag)}</span>`).join('')}</p>
       </div>
     </div>
-  \`;
+  `;
 }
 
 function renderMaturity(m) {
