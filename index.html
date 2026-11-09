@@ -10,6 +10,7 @@
 <meta property="og:title" content="Richard Vincent | GRC, Cyber Risk &amp; ISO 27001 Portfolio" />
 <meta property="og:description" content="Applied ISO 27001 and NIST CSF 2.0 portfolio demonstrating risk assessment, control evaluation, audit evidence, supplier risk, and continual improvement." />
 <meta property="og:url" content="https://richvince.github.io/R-Vincent/" />
+<meta property="og:image" content="https://richvince.github.io/R-Vincent/RVlogo.png" />
 <link rel="canonical" href="https://richvince.github.io/R-Vincent/" />
 <meta name="twitter:card" content="summary" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -413,8 +414,16 @@ footer{padding:56px 0 32px; border-top:1px solid var(--border);}
 </style>
 <style>
   /* Recruiter landing page: detailed material now lives on dedicated pages. */
-  main > .section:not(#applied-grc):not(#contact),
+  main > .section:not(#recruiter-journey):not(#applied-grc):not(#contact),
   .stats-section { display:none !important; }
+
+.recruiter-journey-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.journey-stage{position:relative;padding:25px;border:1px solid var(--border);border-radius:18px;background:linear-gradient(145deg,rgba(17,21,48,.94),rgba(12,15,34,.96));min-width:0}
+.journey-stage .stage-num{display:block;margin-bottom:14px;font:600 .72rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--blue-soft)}
+.journey-stage h3{margin:0 0 9px;font-family:var(--display);font-size:1.2rem}
+.journey-stage p{margin:0;color:var(--muted-2);line-height:1.72}
+.journey-stage a{display:inline-flex;margin-top:16px;color:var(--blue-soft);font-weight:700;font-size:.88rem}
+@media(max-width:800px){.recruiter-journey-grid{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">
 {
@@ -475,7 +484,7 @@ footer{padding:56px 0 32px; border-top:1px solid var(--border);}
     <div>
       <div class="kicker"><span class="kicker-dot"></span>Atlanta-based · Open to GRC and cyber risk roles</div>
       <h1>Technical security insight.<br /><span class="hero-grad">Business-focused risk decisions.</span></h1>
-      <p class="hero-lead">Cybersecurity and GRC professional with 10+ years in enterprise IT and network infrastructure. I translate technical evidence into clear risks, control findings, remediation priorities, and stakeholder-ready documentation—while developing focused capability in AI governance.</p>
+      <p class="hero-lead">Cybersecurity and GRC professional with more than 10 years across IT support, network infrastructure, device services, and technical operations—including experience supporting enterprise network environments. I translate technical evidence into clear risks, control findings, remediation priorities, and stakeholder-ready documentation while developing focused capability in GRC automation and AI governance.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="Richard_Vincent_GRC_Resume.pdf" target="_blank" rel="noopener">View Resume</a>
         <a class="btn btn-secondary" href="assessment-assistant.html" target="_blank" rel="noopener">Launch GRC Assistant →</a>
@@ -587,6 +596,22 @@ footer{padding:56px 0 32px; border-top:1px solid var(--border);}
   </div>
 </section>
 
+<!-- ══════════════ RECRUITER JOURNEY ══════════════ -->
+<section class="section" id="recruiter-journey">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-label">Career Journey</div>
+      <h2 class="section-title">Technical foundation. Applied governance. Automation-ready growth.</h2>
+      <p class="section-intro">My work connects hands-on technology experience with evidence-based risk decisions and a developing specialization in cloud, identity, GRC automation, and responsible AI governance.</p>
+    </div>
+    <div class="recruiter-journey-grid">
+      <article class="journey-stage reveal"><span class="stage-num">01 · Foundation</span><h3>Technical Operations</h3><p>More than 10 years across IT support, network infrastructure, device services, troubleshooting, and enterprise network environments.</p><a href="professional-profile.html">Review technical foundation →</a></article>
+      <article class="journey-stage reveal reveal-delay-1"><span class="stage-num">02 · Applied Practice</span><h3>GRC and Audit</h3><p>Applied ISO 27001 and NIST CSF 2.0 to a real owner-operated business, supported by risk, control, evidence, supplier, audit, and corrective-action artifacts.</p><a href="grc-projects.html">View applied GRC work →</a></article>
+      <article class="journey-stage reveal reveal-delay-2"><span class="stage-num">03 · Developing Specialization</span><h3>GRC Automation and AI Governance</h3><p>Building Python and AWS IAM control-testing workflows, evidence automation, human-governed AI assessment design, and AI governance capability.</p><a href="grc-projects.html">Explore automation projects →</a></article>
+    </div>
+  </div>
+</section>
+
 <!-- ══════════════ QUICK LINKS ══════════════ -->
 <section class="quicklinks-section">
   <div class="container">
@@ -600,7 +625,7 @@ footer{padding:56px 0 32px; border-top:1px solid var(--border);}
       <a class="quicklink reveal reveal-delay-1" href="grc-projects.html">
         <div class="qicon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
         <h3>Applied GRC Projects</h3>
-        <p>Review 12 ISO 27001 and NIST CSF governance deliverables.</p>
+        <p>Explore 14 applied GRC, audit, cloud, and automation projects.</p>
         <span class="qarrow">Browse <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
       <a class="quicklink reveal reveal-delay-2" href="professional-profile.html">
@@ -1196,7 +1221,7 @@ footer{padding:56px 0 32px; border-top:1px solid var(--border);}
   <div class="container">
     <div class="section-header reveal">
       <div class="section-label">Contact</div>
-      <h2 class="section-title">Let’s discuss your GRC, cyber risk, or compliance needs.</h2>
+      <h2 class="section-title">Let’s discuss how I can contribute to your GRC, cyber-risk, or compliance team.</h2>
       <p class="section-intro">I am open to Atlanta-area and remote opportunities where technical security experience, practical risk analysis, and clear documentation strengthen the team.</p>
     </div>
     <div class="contact-card reveal">
